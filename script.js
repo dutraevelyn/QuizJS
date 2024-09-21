@@ -46,3 +46,40 @@ const questions = [
   const nextButton = document.querySelector("#next")
   const scoreElement = document.querySelector("#score")
   const wrongElement = document.querySelector("#wrong")
+
+  let currentQuestion = 0
+  let score = 0
+  let wrong = 0
+  let answerChosen = false
+
+  function loadQuestion() {
+    const currentQuestionData = questions[currentQuestion];
+    questionElement.innerText = currentQuestionData.question;
+  
+    const choices = shuffleArray(currentQuestionData.choices)
+  
+    for (let i = 0; i < choiceElements.length; i++) {
+      choiceElements[i].innerText = choices[i];
+    }
+
+    answerChosen = false;
+  }
+
+    function shuffleArray(array){
+      let currentIndex = array.length
+      let temporaryValue
+      let randomIndex
+
+      while(0 !== currentIndex){
+        randomIndex = Math.floor(Math.random()* currentIndex)
+        currentIndex -= 1
+
+        temporaryValue = array[currentIndex]
+        array[currentIndex] = array[randomIndex]
+        array[randomIndex] = temporaryValue
+      }
+      return array
+    }
+    
+
+  loadQuestion()
