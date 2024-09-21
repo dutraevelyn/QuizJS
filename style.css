@@ -1,0 +1,61 @@
+body{
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-image: url("/imagens/fundoHP.jpg");
+    background-size: 100% 120%;
+    background-repeat: no-repeat;
+    backdrop-filter: blur(2px);
+}
+
+.background{
+    background-color: white;
+    width: 500px;
+    height: 300px;
+    box-shadow: 0px 0px 5px 2px rgba(0, 0, 0, 0.1);
+}
+
+.quiz-container {
+    color: #241000;
+    text-align: center;
+    padding: 20px;
+    border-radius: 10px;
+  }
+  
+  .choice {
+    margin: 10px;
+    border: 1px solid #62300a;
+    padding: 10px;
+    cursor: pointer;
+    background-color: #fff7f2;
+  }
+  
+  .choice:hover {
+    transition: 0.5s;
+    background-color: #c26117;
+  }
+  
+  #next {
+    margin-top: 20px;
+    padding: 10px 20px;
+    border: none;
+    background-color: #62300a;
+    color: white;
+    cursor: pointer;
+    border-radius: 10px;
+  }
+
+  #next:hover {
+    transition: 0.5s;
+    background-color: #c26117;
+  }
+  
+  #score,
+  #wrong {
+    font-size: 1.2em;
+    color: #62300a;
+    margin-top: 20px;
+  }
