@@ -80,6 +80,48 @@ const questions = [
       }
       return array
     }
-    
+  
+  function checkAnswer(e){
+    if(answerChosen) return
+    answerChosen = true
+
+    if(e.target.innerText === questions[currentQuestion].answer){
+      score ++
+      scoreElement.innerText = `Pontuação: ${score}`
+      alert("Correto!")
+    } else {
+      wrong++
+      wrongElement.innerText = `Erros: ${wrong}`
+      alert(`Errado! A resposta correta é: ${questions[currentQuestion].answer}`)
+    }
+  }
+
+  choiceElements.forEach((btn) =>{
+    btn.addEventListener("click", checkAnswer)
+  })
+
+  nextButton.addEventListener("click", () => {
+    if(!answerChosen){
+      alert("Responda a pergunta!")
+      return
+    }
+
+    currentQuestion++
+
+    if(currentQuestion < questions.length){
+      loadQuestion()
+    } else{
+      alert(`Fim do quiz! Você acertou ${score} de ${questions.length} perguntas.`)
+    }
+  })
+
+  function restart() {
+    currentQuestion = 0
+    score = 0
+    wrong = 0
+    scoreElement.innerText = `Pontuação: 0`    
+    wrongElement.innerText = `Erros: 0`
+    loadQuestion()
+  }
 
   loadQuestion()
